@@ -1,7 +1,3 @@
-from langchain_core.prompts import (
-    ChatPromptTemplate,
-    MessagesPlaceholder,
-)
 from langchain_community.agent_toolkits import SQLDatabaseToolkit
 from langchain.memory import ConversationBufferMemory
 import time
@@ -9,6 +5,8 @@ from conf import *
 from langchain.sql_database import SQLDatabase
 from langchain_community.agent_toolkits import create_sql_agent
 from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import MessagesPlaceholder
 
 
 class ChatAgent:
