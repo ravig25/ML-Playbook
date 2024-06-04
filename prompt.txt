@@ -26,6 +26,20 @@ marital_status TEXT,
 location TEXT,
 age_group TEXT
 
+"recommendation" table contains data about the results of the recommendation model that has been implemented.
+It provides information about the top 5 recommended products for each of the customers.
+It also contains various demographic details about the customer.
+
+The column "customer_id" represents the id of the customer for whom top 5 product recommendations have been made based on the customer's past buying history.
+The column "product_id_1" represents the id of the product which has the highest probability to be bought by the "customer_id" amongst all other products based on the customer's past buying history.
+The column "product_id_2" represents the id of the product which has the second highest probability to be bought by the "customer_id" amongst all other products based on the customer's past buying history.
+The column "product_id_3" represents the id of the product which has the third highest probability to be bought by the "customer_id" amongst all other products based on the customer's past buying history.
+The column "product_id_4" represents the id of the product which has the fourth highest probability to be bought by the "customer_id" amongst all other products based on the customer's past buying history.
+The column "product_id_5" represents the id of the product which has the fifth highest probability to be bought by the "customer_id" amongst all other products based on the customer's past buying history.
+The column "marital_status" represents the marital status of the "customer_id".
+The column "location" represents to which city the "customer_id" belongs.
+The column "age_group" represents the age group to which the "customer_id" belongs to.
+
 3 rows from recommendation table:
 customer_id product_id_1 product_id_2 product_id_3 product_id_4 product_id_5 email age gender marital_status location age_group
 1 272 281 59 287 290 phillipscrystal@example.org 34 Female not_disclosed Kanpur 30-40
@@ -47,6 +61,24 @@ type TEXT,
 "forecast_15Mar24" BIGINT,
 "forecast_29Mar24" BIGINT,
 
+"forecast" table contains data about the results of the forecast model that has been implemented.
+It contains forecast for next 6 fortnights for each of the products based on the past product sales data.
+It also contains details about the various products.
+
+The column "product" describes the name of the product for whom the forecast has been made.
+The column "product_id" describes the id of the product for whom the forecast has been made.
+The column "category" describes the category to which the "product" belongs.
+The column "sub_category" describes the sub category of the category to which the "product" belongs.
+The column "brand" describes the brand name to which the "product" belongs.
+The column "price" describes the price of the "product".
+The column "type" describes the type of the "product".
+The column "forecast_15Jan24" describes the forecast for the first upcoming fortnight - 15th Jan 2024.
+The column "forecast_31Jan24" describes the forecast for the second upcoming fortnight - 31st Jan 2024.
+The column "forecast_14Feb24" describes the forecast for the second upcoming fortnight - 14th Feb 2024.
+The column "forecast_29Feb24" describes the forecast for the second upcoming fortnight - 29th Feb 2024.
+The column "forecast_15Mar24" describes the forecast for the second upcoming fortnight - 15th Mar 2024.
+The column "forecast_29Mar24" describes the forecast for the second upcoming fortnight - 29th Mar 2024.
+
 3 rows from forecast table:
 category sub_category brand product_id product price type forecast_15Jan24 forecast_31Jan24 forecast_14Feb24 forecast_29Feb24 forecast_15Mar24 forecast_29Mar24
 Beauty & Hygiene Bath & Hand Wash Godrej Protekt 1 Germ Protection Hand Sanitizer 187.5 Hand Wash & Sanitizers 11 12 10 11 11 11
@@ -61,6 +93,7 @@ While referencing the columns during query generation always use ""table_name"."
 Ensure that the query limits the results to at most 5 rows and orders the results by a relevant column for the most interesting examples.
 Only use extra tools, such as proper noun filtering, if needed based on the provided query.
 Avoid making any DML statements (INSERT, UPDATE, DELETE, DROP, etc.) to the database unless absolutely necessary.
+Please ensure that whenever multiple tables are required for answering a question, do understand the data context and accordingly apply "WHERE" condition, "JOIN" and other SQL commands for getting to the correct answer. If you are not able to understand which tables have to be joined as per the question context, do not hallucinate, instead clarify from the user.
 
 Evaluation Criteria:
 
