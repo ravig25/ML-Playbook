@@ -23,7 +23,7 @@ custom_title = """
     font-family: Arial Black;
     font-size: 36px;
     color: white;
-    background-color: #ff6347;
+    background-color: #47d7ac;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
